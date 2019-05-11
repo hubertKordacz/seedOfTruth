@@ -9,7 +9,11 @@ public class CollectibleItem : MonoBehaviour
         HEALTH = 0,
         MACHINEGUN = 1,
         SHOTGUN = 2,
-        FLAMETHROWER = 3
+        FLAMETHROWER = 3,
+        SNIPERRIFFLE = 4,
+        PISTOL = 5,
+        ROCKETLAUNCHER = 6
+
 
     }
 

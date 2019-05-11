@@ -54,8 +54,9 @@ public class PlayerMovement : MonoBehaviour
 
 	const float smallAmount = .05f;         //A small amount used for hanging position
 
-	   
-	void Start ()
+    public int Direction { get => direction; }
+
+    void Start ()
 	{
         isDash = false;
         dashTimeStamp = Time.time - dashCooldown;
