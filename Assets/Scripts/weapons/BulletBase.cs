@@ -21,7 +21,7 @@ public class BulletBase : MonoBehaviour
         rigidBody = this.GetComponent<Rigidbody2D>();
     }
 
-    internal void Init(Vector3 direction)
+    public void Init(Vector3 direction)
     {
         this.rigidBody.AddForce(direction.normalized * speed, ForceMode2D.Impulse );
         isActive = false;

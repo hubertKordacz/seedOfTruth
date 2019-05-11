@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 456444440050965598}
   - component: {fileID: 4222987681341925443}
   - component: {fileID: 5081936271737095537}
-  - component: {fileID: 151393850409982711}
+  - component: {fileID: 3747540524562777110}
   m_Layer: 11
-  m_Name: bullet_machinegun
+  m_Name: bullet_shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552044058244079339}
-  m_LocalRotation: {x: -0, y: -0, z: -0.5313755, w: 0.8471363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -64.19701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4548541399562824754
 Rigidbody2D:
   serializedVersion: 4
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  damage: 2
-  timeToLive: 55
+  damage: 4
+  timeToLive: 1
   destroyOnWall: 1
 --- !u!212 &4222987681341925443
 SpriteRenderer:
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c58d153d19ea65048a1839889eb1ab71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb8d090bb36c0f749ad0a65c6ffcdd21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +136,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
---- !u!96 &151393850409982711
+--- !u!96 &3747540524562777110
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -204,8 +204,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.54239345, b: 0.02352941, a: 1}
-      key1: {r: 0.9716981, g: 0.5904519, b: 0, a: 1}
+      key0: {r: 0.12954736, g: 0.764151, b: 0, a: 1}
+      key1: {r: 0.10588236, g: 0.6117647, b: 0.003921569, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -24,7 +24,7 @@ public class WeaponBase : MonoBehaviour
 
     public bool HasBullets { get => bullets>0; }
 
-    public void Fire(Vector3 direction , Vector3 position)
+    public virtual void Fire(Vector3 direction , Vector3 position, Rigidbody2D body=null)
     {
         if (bulletPrefab == null)
             return;
@@ -33,7 +33,7 @@ public class WeaponBase : MonoBehaviour
         bullet.Init(direction);
     }
 
-    private BulletBase CreateBullet(Vector3 direction, Vector3 position)
+    protected BulletBase CreateBullet(Vector3 direction, Vector3 position)
     {
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

@@ -50,7 +50,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
     public void SetCurrentWeapon(WeaponBase.WeaponType type)
     {
-
+        Debug.Log("SET WEAPON: "+ type);
 
         if (currentWeapon)
             currentWeapon.Deactvate();
