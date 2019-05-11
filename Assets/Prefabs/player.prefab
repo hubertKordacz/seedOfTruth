@@ -48,29 +48,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawDebugRaycasts: 1
-  speed: 8
-  crouchSpeedDivisor: 3
+  speed: 6
   coyoteDuration: 0.05
-  maxFallSpeed: -25
-  jumpForce: 6.3
-  crouchJumpBoost: 2.5
-  hangingJumpForce: 15
-  jumpHoldForce: 1.9
-  jumpHoldDuration: 0.1
+  maxFallSpeed: -25.3
+  jumpForce: 20
+  dashForce: 20
+  dashCooldown: 0.4
+  dashTime: 0.15
   footOffset: 0.3
-  eyeHeight: 1.5
-  reachOffset: 0.7
-  headClearance: 0.5
-  groundDistance: 1
-  grabDistance: 0.4
+  groundDistance: 0.485
   groundLayer:
     serializedVersion: 2
-    m_Bits: 512
-  isOnGround: 0
-  isJumping: 0
-  isHanging: 0
-  isCrouching: 0
-  isHeadBlocked: 0
+    m_Bits: 256
+  isOnGround: 1
+  isDash: 0
 --- !u!212 &5035719554901856940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306bf562605df40d99d603651f8c52f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputID: 0
   testTouchControlsInEditor: 0
   verticalDPadThreshold: 0.5
   horizontal: 0
@@ -185,3 +177,7 @@ MonoBehaviour:
   jumpPressed: 0
   crouchHeld: 0
   crouchPressed: 0
+  dashHeld: 0
+  dashPressed: 0
+  fireHeld: 0
+  firePressed: 0
