@@ -57,7 +57,7 @@ MonoBehaviour:
   hangingJumpForce: 15
   jumpHoldForce: 1.9
   jumpHoldDuration: 0.1
-  footOffset: 0.4
+  footOffset: 0.3
   eyeHeight: 1.5
   reachOffset: 0.7
   headClearance: 0.5
@@ -153,18 +153,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.011325836, y: -0.00000047683716}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.13, y: 5.12}
+    oldSize: {x: 1.0019531, y: 1}
     newSize: {x: 20.48, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.13, y: 5.12}
+  m_Size: {x: 0.75844574, y: 0.9296465}
   m_EdgeRadius: 0
 --- !u!114 &5035719554901856941
 MonoBehaviour:
