@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        for (int i = 0; i < 4; i++)
+            score.Add(0);
     }
     void Start()
     {
@@ -93,7 +95,7 @@ public class GameManager : MonoBehaviour
                         selected++;
                 }
 
-                if (selected > 1)
+                //if (selected > 1)
                     LoadNextLevel();
 
            
@@ -150,6 +152,7 @@ public class GameManager : MonoBehaviour
         }
 
         score[winner]++;
+        Debug.Log("StopGameplay | winner score: " + score[winner]);
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(levels[currentSceneIndex]);
         if (score[winner] >= maxWins)
         {
@@ -163,6 +166,10 @@ public class GameManager : MonoBehaviour
 
     private void ShowCurrentResult(int winner)
     {
+
+        if (selectScreen)
+            selectScreen.gameObject.SetActive(true);
+
         state = MenuState.CURRENT_RESULT;
         for (int i = 0; i < 4; i++)
         {
@@ -174,6 +181,7 @@ public class GameManager : MonoBehaviour
 
     private void ShowFinalResult()
     {
+
         state = MenuState.FINAL_RESULT;
         for (int i = 0; i < 4; i++)
         {

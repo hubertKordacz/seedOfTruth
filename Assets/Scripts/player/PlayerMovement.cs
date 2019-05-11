@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     internal void Kill()
     {
-        throw new NotImplementedException();
+   
     }
 
     public float dashTime = 1.1f;            //How long the dash last
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerInput.dashPressed && !isDash && dashTimeStamp + dashCooldown < Time.time)
         {
-            Debug.Log("Dash");
+        
             //...record the time the player will be able to dash again
             dashTimeStamp = Time.time;
             isDash = true;
