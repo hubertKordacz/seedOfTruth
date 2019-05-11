@@ -6,6 +6,8 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
     enum MenuState
     {
         NONE = 0,
@@ -25,8 +27,15 @@ public class GameManager : MonoBehaviour
     private List<int> score = new List<int>();
     private int currentSceneIndex=0;
     private MenuState state;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
+
+
         currentSceneIndex = -1;
         if (selectScreen)
             selectScreen.gameObject.SetActive(true);
@@ -60,7 +69,15 @@ public class GameManager : MonoBehaviour
 
 
     }
-
+    public bool IsPlaing(InputID playerId)
+    {
+        foreach (var item in menuSlots)
+        {
+            if (item.player == playerId)
+                return item.IsSelected;
+        }
+        return false;
+    }
     private void UpdateSelect()
     {
         for (int i = 0; i < 4; i++)
@@ -121,8 +138,17 @@ public class GameManager : MonoBehaviour
             loadingScreen.gameObject.SetActive(false);
     }
 
-    public void StopGameplay(int winner)
+    public void StopGameplay(InputID  winnerID)
     {
+
+        int winner = 0;
+
+        foreach (var item in menuSlots)
+        {
+            if (item.player == winnerID)
+                winner = menuSlots.IndexOf(item);
+        }
+
         score[winner]++;
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(levels[currentSceneIndex]);
         if (score[winner] >= maxWins)

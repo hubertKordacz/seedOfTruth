@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PlayerWeaponController : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerWeaponController : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerMovement playerMovement;
     private Collider2D playerCollider;
+    private PlayerHealth playerHealth;
+  
+    private PlayerGameplaySlot hudSlot;
+
 
     public Collider2D PlayerCollider { get => playerCollider;  }
 
@@ -20,6 +25,11 @@ public class PlayerWeaponController : MonoBehaviour
         playerInput = this.GetComponent<PlayerInput>();
         playerMovement = GetComponent<PlayerMovement>();
         playerCollider = GetComponent<Collider2D>();
+        playerHealth = GetComponent<PlayerHealth>();
+
+        if (playerHealth)
+            hudSlot = playerHealth.hudSlot;
+
     }
     private void Update()
     {
@@ -32,6 +42,7 @@ public class PlayerWeaponController : MonoBehaviour
             var dir = new Vector3(playerMovement.Direction,0, 0);
             currentWeapon.Fire(dir, dir * .5f + this.transform.position  + Vector3.up * 0.32f);
             shotTimeStamp = Time.time;
+            UpdateWeaponHud();
         }
 
     }
@@ -50,13 +61,19 @@ public class PlayerWeaponController : MonoBehaviour
             {
                 weapon.Activate(this);
                 currentWeapon = weapon;
-                shotTimeStamp = Time.time;
+                shotTimeStamp = Time.time- currentWeapon.cooldown;
 
+                UpdateWeaponHud();
                 return;
             }
         }
 
 
         currentWeapon = null;
+    }
+
+    private void UpdateWeaponHud()
+    {
+       
     }
 }

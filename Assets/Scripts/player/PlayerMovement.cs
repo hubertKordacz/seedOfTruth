@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash Properties")]
     public float dashForce = 4.3f;          //Initial force of dash
     public float dashCooldown = 2.1f;       //How long the dash can't be performed
+
+    internal void Kill()
+    {
+        throw new NotImplementedException();
+    }
+
     public float dashTime = 1.1f;            //How long the dash last
 
     [Header("Environment Check Properties")]

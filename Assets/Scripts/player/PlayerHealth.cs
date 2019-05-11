@@ -1,20 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    private bool isDead;
+    public PlayerGameplaySlot hudSlot;
+    public float maxHealth = 100;
+    public bool IsDead { get => isDead;  }
+
+    private float health = 100;
+
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
     public void DealDamage(float value)
     {
 
+        health = Mathf.Max(health - value);
 
-
+        if(hudSlot)
+        hudSlot.UpdateHealth(health, maxHealth);
+        CheckIfIsDeath();
     }
 
+    private void CheckIfIsDeath()
+    {
+        if (health <= 0)
+        {
+           isDead = true;
+            var movement = this.GetComponent<PlayerMovement>();
+            movement.Kill();
+        }
+    }
 
     public void Heal(float value)
     {
 
+        health = Mathf.Max(health + value);
+        if (hudSlot)
+            hudSlot.UpdateHealth(health, maxHealth);
+        CheckIfIsDeath();
+    }
 
+    public void RemoveFromGame()
+    {
+        if (hudSlot)
+            Destroy(hudSlot);
+
+
+        Destroy(this.gameObject);
 
     }
 }
