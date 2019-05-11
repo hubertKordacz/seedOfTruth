@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4222987681341925443}
   - component: {fileID: 5081936271737095537}
   m_Layer: 0
-  m_Name: bullet_pistol
+  m_Name: bullet_sniperRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac681c4a30214ad18f75bb6510000c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  damage: 4
+  speed: 40
+  damage: 34
   timeToLive: 55
   destroyOnWall: 1
 --- !u!212 &4222987681341925443

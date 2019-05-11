@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4222987681341925443}
   - component: {fileID: 5081936271737095537}
   m_Layer: 0
-  m_Name: bullet_pistol
+  m_Name: bullet_machinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  damage: 4
+  damage: 2
   timeToLive: 55
   destroyOnWall: 1
 --- !u!212 &4222987681341925443
