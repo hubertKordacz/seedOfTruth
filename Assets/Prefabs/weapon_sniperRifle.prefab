@@ -46,4 +46,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 456444440050965598, guid: b042a21b9bfcf834e99c94e1238dc260,
     type: 3}
   cooldown: 2
+  maxBullets: 10
+  bullets: 0
   type: 4

@@ -1,28 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerGameplaySlot : MonoBehaviour
 {
+    public Slider health;
+    public Slider bulletsProgress;
+    public TextMeshProUGUI bulletsValue;
     // Use this for initialization
-    void Start()
-    {
+   
 
+
+    public void UpdateBullets(float value, float max)
+    {
+        Debug.Log("UpdateBullets " + value + " " + max);
+        if (bulletsProgress)
+            bulletsProgress.value = value / max;
+
+        if (bulletsValue)
+            bulletsValue.text = value.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealth(float value, float max)
     {
-
-    }
-
-    internal void UpdateHealth(float health)
-    {
-        throw new NotImplementedException();
-    }
-
-    internal void UpdateHealth(float health, float maxHealth)
-    {
-        throw new NotImplementedException();
+        Debug.Log("UpdateHealth " + value + " " + max);
+        if (health)
+            health.value = value / max;
     }
 }

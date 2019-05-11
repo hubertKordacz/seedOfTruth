@@ -16,12 +16,13 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
+        hudSlot.UpdateHealth(health, maxHealth);
     }
 
     public void DealDamage(float value)
     {
 
-        health = Mathf.Max(health - value);
+        health = Mathf.Max(health - value,0);
 
         if(hudSlot)
         hudSlot.UpdateHealth(health, maxHealth);
@@ -41,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(float value)
     {
 
-        health = Mathf.Max(health + value);
+        health = Mathf.Min(health + value, maxHealth);
         if (hudSlot)
             hudSlot.UpdateHealth(health, maxHealth);
         CheckIfIsDeath();
