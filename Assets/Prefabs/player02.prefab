@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8448891162709556502, guid: 757c3ec6d504046d5aaadbc30a21d81c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 82cbab64d45e1044787598e2e685a43d, type: 2}
     - target: {fileID: 5035719554901856937, guid: 757c3ec6d504046d5aaadbc30a21d81c,
         type: 3}
       propertyPath: m_Name
@@ -72,11 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5035719554901856941, guid: 757c3ec6d504046d5aaadbc30a21d81c,
-        type: 3}
-      propertyPath: inputID
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5035719554901856940, guid: 757c3ec6d504046d5aaadbc30a21d81c,
         type: 3}
       propertyPath: m_Sprite
@@ -87,6 +77,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.96875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035719554901856941, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: inputID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448891162709556502, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 82cbab64d45e1044787598e2e685a43d, type: 2}
+    - target: {fileID: 2914335755362170544, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.13392794
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914335755362170544, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.1932266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914335755362170544, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.09019607
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757c3ec6d504046d5aaadbc30a21d81c, type: 3}
