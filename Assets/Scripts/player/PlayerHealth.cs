@@ -22,7 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage(float value)
     {
-        hitParticle.Play(true);
+        if(hitParticle)
+            hitParticle.Play(true);
         health = Mathf.Max(health - value,0);
 
         if(hudSlot)

@@ -15,7 +15,12 @@ public class PlayerMovement : MonoBehaviour
     public float maxFallSpeed = -25f;       //Max speed player can fall
 
     [Header("Jump Properties")]
-    public float jumpForce = 6.3f;			//Initial force of jump
+    public float jumpForce = 6.3f;          //Initial force of jump
+
+    internal void Push(float v, Vector2 vector2)
+    {
+       
+    }
 
     [Header("Dash Properties")]
     public float dashForce = 4.3f;          //Initial force of dash

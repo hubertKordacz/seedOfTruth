@@ -12,9 +12,9 @@ public class BulletBase : MonoBehaviour
 
     public bool destroyOnWall = true;
 
-    private Rigidbody2D rigidBody;
+    protected Rigidbody2D rigidBody;
 
-    private bool isActive; 
+    protected bool isActive; 
     // Use this for initialization
     void Awake()
     {
@@ -44,16 +44,21 @@ public class BulletBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (!isActive)
             return;
 
+        Hit(collision);
 
-      // if( collision.gameObject.CompareTag("player"))
+    }
+
+    protected virtual void Hit(Collision2D collision)
+    {
+
+        // if( collision.gameObject.CompareTag("player"))
         {
 
             var health = collision.gameObject.GetComponent<PlayerHealth>();
-            if(health)
+            if (health)
             {
                 health.DealDamage(damage);
                 DestroySelf();
@@ -63,10 +68,9 @@ public class BulletBase : MonoBehaviour
         }
         if (destroyOnWall)
             DestroySelf();
-
     }
 
-    private void DestroySelf()
+    protected virtual void DestroySelf()
     {
         if (isActive)
         {
