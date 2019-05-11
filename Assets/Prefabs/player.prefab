@@ -52,15 +52,18 @@ MonoBehaviour:
   coyoteDuration: 0.05
   maxFallSpeed: -25.3
   jumpForce: 20
-  dashForce: 20
-  dashCooldown: 0.4
+  dashForce: 18
+  dashCooldown: 0.55
   dashTime: 0.15
   footOffset: 0.3
+  handsOffset: 0.42
   groundDistance: 0.485
+  wallDistance: 0.45
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   isOnGround: 1
+  isOnWall: 0
   isDash: 0
 --- !u!212 &5035719554901856940
 SpriteRenderer:
