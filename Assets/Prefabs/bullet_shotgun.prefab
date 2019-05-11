@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4222987681341925443}
   - component: {fileID: 5081936271737095537}
   - component: {fileID: 3747540524562777110}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: bullet_shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cb8d090bb36c0f749ad0a65c6ffcdd21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4665436feb7f3be41af89de08a3db364, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 456444440050965598, guid: 56fb0c0000b114e5bae603a2f91130a6,
     type: 3}
-  cooldown: 0.5
+  cooldown: 0.6
   maxBullets: 20
   bullets: 0
   type: 2
   batchSize: 5
-  batchAngle: 10
+  batchAngle: 5

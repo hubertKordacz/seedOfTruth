@@ -1171,12 +1171,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8796280145763739431, guid: 4f082f7d476646543837011cf878e05c,
+    - target: {fileID: 6996912036747698344, guid: 4f082f7d476646543837011cf878e05c,
         type: 3}
       propertyPath: hudSlot
       value: 
       objectReference: {fileID: 268067186}
-    - target: {fileID: 6996912036747698344, guid: 4f082f7d476646543837011cf878e05c,
+    - target: {fileID: 8796280145763739431, guid: 4f082f7d476646543837011cf878e05c,
         type: 3}
       propertyPath: hudSlot
       value: 
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9e70450447647dabe31a335b51082b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initalCount: 2
+  initalCount: 1
   maxCount: 4
   interval: 5
   items:
