@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88853b910fd6419f839a6650cd7667f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupParticle: {fileID: 1275165731958236966}
 --- !u!114 &4229045349214887463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782282035096714, guid: 2da702c8fb4087c44b5c237976af5fce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198405478074982118, guid: 2da702c8fb4087c44b5c237976af5fce,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

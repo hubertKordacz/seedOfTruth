@@ -21,6 +21,9 @@ public class CollectibleItem : MonoBehaviour
     private Animator animator;
     private bool isActive = false;
 
+    
+    public ParticleSystem spawnParticle;
+
     public bool IsActive { get => isActive; }
 
     private void Awake()
@@ -36,10 +39,13 @@ public class CollectibleItem : MonoBehaviour
     public void Show()
     {
       isActive = true;
+        
+        
         if (animator)
             animator.SetTrigger("show");
-        else
+        else 
             this.gameObject.SetActive(true);
+        spawnParticle.Play(true);
     }
     public void Hide()
     {
@@ -61,6 +67,7 @@ public class CollectibleItem : MonoBehaviour
 
             if (picker)
                 picker.PickUpCollectible(this);
+            
         }
     }
 }

@@ -6,6 +6,7 @@ public class CollectiblePicker : MonoBehaviour
 {
     private PlayerWeaponController weaponController;
     private PlayerHealth health;
+    public ParticleSystem pickupParticle;
 
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class CollectiblePicker : MonoBehaviour
     }
     public void PickUpCollectible(CollectibleItem item)
     {
+        pickupParticle.Play(true);
         ApplyEffect(item.itemType);
         item.Hide();
     }
