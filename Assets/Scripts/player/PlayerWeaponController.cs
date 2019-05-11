@@ -30,7 +30,7 @@ public class PlayerWeaponController : MonoBehaviour
         if((playerInput.fireHeld  || playerInput.firePressed) && !playerMovement.isOnWall &&  shotTimeStamp + currentWeapon.cooldown <    Time.time )
         {
             var dir = new Vector3(playerMovement.Direction,0, 0);
-            currentWeapon.Fire(dir, dir * .5f + this.transform.position  );
+            currentWeapon.Fire(dir, dir * .5f + this.transform.position  + Vector3.up * 0.32f);
             shotTimeStamp = Time.time;
         }
 
