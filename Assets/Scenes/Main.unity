@@ -730,6 +730,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d11e4124ccf4ada98398d8ca32f284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels:
+  - level_01
+  - level_02
+  - level_03
+  - level_04
+  - level_05
+  - level_06
+  - level_07
   menuSlots:
   - {fileID: 5941130364125939994}
   - {fileID: 1301209081}
