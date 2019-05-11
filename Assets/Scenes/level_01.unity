@@ -1028,6 +1028,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4229045349214887463, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: bombPrefab
+      value: 
+      objectReference: {fileID: 2060008899482227607, guid: 578254dbfa80b44d29dd5cbcd2eb63a2,
+        type: 3}
+    - target: {fileID: 4229045349214887463, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: bombInterval
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2746477210976331399, guid: 757c3ec6d504046d5aaadbc30a21d81c,
         type: 3}
       propertyPath: hudSlot
@@ -1171,12 +1182,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6996912036747698344, guid: 4f082f7d476646543837011cf878e05c,
+    - target: {fileID: 8796280145763739431, guid: 4f082f7d476646543837011cf878e05c,
         type: 3}
       propertyPath: hudSlot
       value: 
       objectReference: {fileID: 268067186}
-    - target: {fileID: 8796280145763739431, guid: 4f082f7d476646543837011cf878e05c,
+    - target: {fileID: 6996912036747698344, guid: 4f082f7d476646543837011cf878e05c,
         type: 3}
       propertyPath: hudSlot
       value: 
