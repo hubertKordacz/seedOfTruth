@@ -23,11 +23,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Environment Check Properties")]
 	public float footOffset = .4f;			//X Offset of feet raycast
-	public float groundDistance = .2f;		//Distance player is considered to be on the ground
-	public LayerMask groundLayer;			//Layer of the ground
+    public float handsOffset = .4f;          //Y Offset of feet raycast
+    public float groundDistance = .2f;		//Distance player is considered to be on the ground
+    public float wallDistance = .2f;      //Distance player is considered to be on the ground
+    public LayerMask groundLayer;			//Layer of the ground
 
 	[Header ("Status Flags")]
     public bool isOnGround;                 //Is the player on the ground?
+    public bool isOnWall;                 //Is the player on the wall?
     public bool isDash;					    //Is the player isDashing?
 	
 
@@ -40,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
 	float coyoteTime;						//Variable to hold coyote duration
 	float playerHeight = 0f;				//Height of the player
 
-	float originalXScale;					//Original scale on X axis
+    float originalXScale;                   //Original scale on X axis
+    float originalGravity;					//Original scale on X axis
 	int direction = 1;						//Direction player is facing
 
 	Vector2 colliderStandSize;				//Size of the standing collider
@@ -63,8 +67,10 @@ public class PlayerMovement : MonoBehaviour
         //Record the original x scale of the player
         originalXScale = transform.localScale.x;
 
-		//Record the player's height from the collider
-		playerHeight = bodyCollider.size.y;
+
+        originalGravity= rigidBody.gravityScale;
+        //Record the player's height from the collider
+        playerHeight = bodyCollider.size.y;
 
 		//Record initial collider size and offset
 		colliderStandSize = bodyCollider.size;
@@ -95,10 +101,15 @@ public class PlayerMovement : MonoBehaviour
             isDash = true;
             //rigidBody.AddForce(new Vector2(dashForce * direction, 0f ), ForceMode2D.Impulse);
             rigidBody.velocity = new Vector2(dashForce * direction, 0f);
+            rigidBody.gravityScale = 0;
         }
 
         if (isDash && dashTimeStamp + dashTime < Time.time)
+        {
             isDash = false;
+            rigidBody.gravityScale = originalGravity;
+        }
+
     }
 
 
@@ -118,10 +129,17 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = true;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
         }
-       
-	}
 
-	void GroundMovement()
+        //Cast rays for the left and right foot
+        RaycastHit2D topCheck = Raycast(new Vector2( 0f ,- handsOffset ), Vector2.right * direction, wallDistance);
+        RaycastHit2D bottomCheck = Raycast(new Vector2(0f, handsOffset), Vector2.right * direction, wallDistance);
+
+        isOnWall = topCheck || bottomCheck;
+
+
+    }
+
+        void GroundMovement()
 	{
 		//Calculate the desired velocity based on inputs
 		float xVelocity = speed * playerInput.horizontal;
@@ -131,8 +149,8 @@ public class PlayerMovement : MonoBehaviour
 			FlipCharacterDirection();
 
 		//Apply the desired velocity 
-        if(!isDash)
-		rigidBody.velocity = new Vector2(xVelocity, rigidBody.velocity.y);
+        if(!isDash && !isOnWall)
+		    rigidBody.velocity = new Vector2(xVelocity, rigidBody.velocity.y);
 
 		//If the player is on the ground, extend the coyote time window
 		if (isOnGround)
