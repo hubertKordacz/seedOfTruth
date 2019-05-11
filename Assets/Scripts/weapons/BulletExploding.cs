@@ -7,6 +7,7 @@ public class BulletExploding : BulletBase
     public float exlosionTime = 0.4f;
     public float exlosionRange = 5.0f;
     public float exlosionPushForce= 5.0f;
+    public ParticleSystem explodeParticle;
 
 
     protected override void Hit(Collision2D collision)
@@ -42,6 +43,7 @@ public class BulletExploding : BulletBase
     private IEnumerator Explode()
     {
         // particle
+        explodeParticle.Play(true);
         this.rigidBody.velocity = Vector2.zero;
         yield return new WaitForSeconds(exlosionTime);
 

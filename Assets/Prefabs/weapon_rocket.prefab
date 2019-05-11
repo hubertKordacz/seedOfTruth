@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1351808401822622785}
   - component: {fileID: 1351808401822622784}
   m_Layer: 0
-  m_Name: weapon_pistol
+  m_Name: weapon_rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c2386f4bcc643879ff8584fd5548a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 456444440050965598, guid: 77c2a7209fb934023ab21a0ebd39cedc,
+  bulletPrefab: {fileID: -5754872654216017832, guid: c52a2ce696ade4a9d8550d48c13e86f6,
     type: 3}
-  cooldown: 0.3
-  maxBullets: 20
+  cooldown: 2
+  maxBullets: 10
   bullets: 0
-  type: 5
+  type: 6
