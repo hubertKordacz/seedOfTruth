@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
     public void RemoveFromGame()
     {
         if (hudSlot)
-            Destroy(hudSlot);
+            Destroy(hudSlot.gameObject);
 
 
         Destroy(this.gameObject);

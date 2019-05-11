@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (count < 1)
+        if (count < 2)
             FinishLevel();
     }
 

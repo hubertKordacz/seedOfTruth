@@ -15,7 +15,7 @@ public class PlayerGameplaySlot : MonoBehaviour
 
     public void UpdateBullets(float value, float max)
     {
-        Debug.Log("UpdateBullets " + value + " " + max);
+     //   Debug.Log("UpdateBullets " + value + " " + max);
         if (bulletsProgress)
             bulletsProgress.value = value / max;
 
@@ -24,7 +24,7 @@ public class PlayerGameplaySlot : MonoBehaviour
     }
     public void UpdateHealth(float value, float max)
     {
-        Debug.Log("UpdateHealth " + value + " " + max);
+       // Debug.Log("UpdateHealth " + value + " " + max);
         if (health)
             health.value = value / max;
     }
