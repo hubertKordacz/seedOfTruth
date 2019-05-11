@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8448891162709556502, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 620ffbf9268b1f34db31ba57923d9de9, type: 2}
     - target: {fileID: 5035719554901856937, guid: 757c3ec6d504046d5aaadbc30a21d81c,
         type: 3}
       propertyPath: m_Name
@@ -72,5 +77,11 @@ PrefabInstance:
       propertyPath: inputID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5035719554901856940, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 37dbab79db35bf74bb4296789535b458,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757c3ec6d504046d5aaadbc30a21d81c, type: 3}

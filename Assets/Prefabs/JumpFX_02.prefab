@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3452183693440800123}
   - component: {fileID: 3258498408253695767}
   - component: {fileID: 3260007002385955837}
-  - component: {fileID: 3346123354226968063}
   m_Layer: 0
   m_Name: JumpFX_02
   m_TagString: Untagged
@@ -49,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -186,8 +185,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.54901963}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+      minColor: {r: 1, g: 0.94523513, b: 0.08962262, a: 0.54901963}
+      maxColor: {r: 1, g: 0.92988515, b: 0, a: 0.9098039}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4532,16 +4531,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &3346123354226968063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3457653864386309889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0

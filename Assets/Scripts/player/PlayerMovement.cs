@@ -62,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
     const float smallAmount = .05f;         //A small amount used for hanging position
 
+    public ParticleSystem jumpParticle;
+
+
     public int Direction { get => direction; }
 
     void Start()
@@ -109,21 +112,24 @@ public class PlayerMovement : MonoBehaviour
         if (animator == null)
             return;
 
-        if (isDash) 
+        if (isDash)
         {
             animator.SetTrigger("dash");
         }
-        else if(isOnGround)
+        else if (isOnGround)
         {
-            if(rigidBody.velocity.x!=0)
-            animator.SetTrigger("walk");
-            else 
-            animator.SetTrigger("idle");
+            if (rigidBody.velocity.x != 0)
+                animator.SetTrigger("walk");
+            else
+                animator.SetTrigger("idle");
         }
-        else 
+        else
         {
-            if (rigidBody.velocity.y> 0)
-                animator.SetTrigger("jump");
+            if (rigidBody.velocity.y > 0)
+            { 
+            animator.SetTrigger("jump");
+            
+            }
             else
                 animator.SetTrigger("fall");
         }
@@ -193,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
         //If the player is on the ground, extend the coyote time window
         if (isOnGround)
             coyoteTime = Time.time + coyoteDuration;
+        
     }
 
     void MidAirMovement()
@@ -203,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //...The player is no longer on the groud and is jumping...
             isOnGround = false;
+            jumpParticle.Play(true);
 
             //...add the jump force to the rigidbody...
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
