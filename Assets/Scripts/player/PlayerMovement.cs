@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     internal void Kill()
     {
-   
+        deathParticle.Play(true);
+        deathParticle2.Play(true);
     }
 
     public float dashTime = 1.1f;            //How long the dash last
@@ -63,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
     const float smallAmount = .05f;         //A small amount used for hanging position
 
     public ParticleSystem jumpParticle;
-
+    public ParticleSystem deathParticle;
+    public ParticleSystem deathParticle2;
 
     public int Direction { get => direction; }
 
