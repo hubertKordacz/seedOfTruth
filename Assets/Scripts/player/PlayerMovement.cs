@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     internal void Kill()
     {
-        throw new NotImplementedException();
+       
     }
 
     public float dashTime = 1.1f;            //How long the dash last

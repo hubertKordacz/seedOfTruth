@@ -17,15 +17,19 @@ public class WeaponBase : MonoBehaviour
 
     public BulletBase bulletPrefab;
     public float cooldown;
+    public float maxBullets;
+    public float bullets;
     public WeaponType type;
     private PlayerWeaponController playerWeaponController;
+
+    public bool HasBullets { get => bullets>0; }
 
     public void Fire(Vector3 direction , Vector3 position)
     {
         if (bulletPrefab == null)
             return;
-       
-        var bullet = CreateBullet(direction, position);
+        bullets--;
+         var bullet = CreateBullet(direction, position);
         bullet.Init(direction);
     }
 
@@ -51,6 +55,7 @@ public class WeaponBase : MonoBehaviour
 
     internal void Activate(PlayerWeaponController playerWeaponController)
     {
+        bullets = maxBullets;
         this.playerWeaponController = playerWeaponController;
     }
 }

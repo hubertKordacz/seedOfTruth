@@ -3,11 +3,13 @@ using System.Collections;
 using Rewired;
 using System;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMenuSlot : MonoBehaviour
 {
     public CanvasGroup group;
     public TextMeshProUGUI scoreLabel;
+  
     public InputID player;
     private bool isSelected;
 
