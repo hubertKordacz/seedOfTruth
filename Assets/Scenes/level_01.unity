@@ -948,7 +948,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4401668464773882120, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+    - target: {fileID: 2746477210976331399, guid: 757c3ec6d504046d5aaadbc30a21d81c,
         type: 3}
       propertyPath: hudSlot
       value: 
@@ -1092,6 +1092,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796280145763739431, guid: 4f082f7d476646543837011cf878e05c,
+        type: 3}
+      propertyPath: hudSlot
+      value: 
+      objectReference: {fileID: 268067186}
+    - target: {fileID: 6996912036747698344, guid: 4f082f7d476646543837011cf878e05c,
         type: 3}
       propertyPath: hudSlot
       value: 
@@ -1257,6 +1262,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796280145763739431, guid: 5e2caf7ce47e7f842ad522481d27e39f,
+        type: 3}
+      propertyPath: hudSlot
+      value: 
+      objectReference: {fileID: 268067188}
+    - target: {fileID: 6996912036747698344, guid: 5e2caf7ce47e7f842ad522481d27e39f,
         type: 3}
       propertyPath: hudSlot
       value: 
@@ -5631,6 +5641,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796280145763739431, guid: 953e62145a6554b4c8478a2aedae2523,
+        type: 3}
+      propertyPath: hudSlot
+      value: 
+      objectReference: {fileID: 268067187}
+    - target: {fileID: 6996912036747698344, guid: 953e62145a6554b4c8478a2aedae2523,
         type: 3}
       propertyPath: hudSlot
       value: 
