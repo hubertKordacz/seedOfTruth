@@ -6,6 +6,9 @@ using System;
 public class PlayerWeaponController : MonoBehaviour
 {
     public List<WeaponBase> weapons = new List<WeaponBase>();
+    public Bomb bombPrefab = null;
+    public float bombInterval = 10.0f;
+    private float lastBombTimeStamp = 0;
 
     private WeaponBase currentWeapon;
     private float shotTimeStamp = 0;
@@ -30,18 +33,26 @@ public class PlayerWeaponController : MonoBehaviour
         if (playerHealth)
             hudSlot = playerHealth.hudSlot;
 
+        lastBombTimeStamp = Time.time;
+
         UpdateWeaponHud();
 
     }
     private void Update()
     {
-        if (currentWeapon == null || playerInput== null || playerMovement==null)
+        if ( playerInput== null || playerMovement==null)
             return;
+        var dir = new Vector3(playerMovement.Direction, 0, 0);
 
-
-        if((playerInput.fireHeld  || playerInput.firePressed) && !playerMovement.isOnWall &&  shotTimeStamp + currentWeapon.cooldown <    Time.time && currentWeapon.HasBullets )
+        if (bombPrefab!=null && lastBombTimeStamp + bombInterval < Time.time)
         {
-            var dir = new Vector3(playerMovement.Direction,0, 0);
+            Instantiate(bombPrefab,   dir * -.5f + this.transform.position + Vector3.up * -0.32f, Quaternion.identity );
+            lastBombTimeStamp = Time.time;
+        }
+
+        if(currentWeapon !=null && (playerInput.fireHeld  || playerInput.firePressed) && !playerMovement.isOnWall &&  shotTimeStamp + currentWeapon.cooldown <    Time.time && currentWeapon.HasBullets )
+        {
+        
             currentWeapon.Fire(dir, dir * .5f + this.transform.position  + Vector3.up * 0.32f);
             shotTimeStamp = Time.time;
             UpdateWeaponHud();

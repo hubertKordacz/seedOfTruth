@@ -17,10 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump Properties")]
     public float jumpForce = 6.3f;          //Initial force of jump
 
-    internal void Push(float v, Vector2 vector2)
-    {
-       
-    }
 
     [Header("Dash Properties")]
     public float dashForce = 4.3f;          //Initial force of dash
@@ -141,6 +137,13 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("fall");
         }
     }
+    public void Push(float force, Vector2 direction)
+    {
+    //    Debug.Log("push " + force + direction);
+    //    if(force > 0 && direction!=Vector2.zero)
+    //    this.rigidBody.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+    }
+
 
     void Dash()
     {
