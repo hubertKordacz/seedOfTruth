@@ -241,7 +241,7 @@ MonoBehaviour:
   waitTime: 5
   warinigTime: 2
   exlosionTime: 0.2
-  exlosionRange: 5.5
+  exlosionRange: 2
   exlosionPushForce: 2
   damage: 30
   eggParticle: {fileID: 3878615201203898460}
