@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump Properties")]
     public float jumpForce = 6.3f;          //Initial force of jump
 
+    [Header("Stuned Properties")]
+    public float stunedTime = 1.0f;
 
     [Header("Dash Properties")]
     public float dashForce = 4.3f;          //Initial force of dash
@@ -37,20 +39,24 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnWall;                 //Is the player on the wall?
     public bool isDash;                     //Is the player isDashing?
     public bool isDead;                     //Is the player isDashing?
+    public bool isStuned;                     //Is the player isDashing?
 
 
     PlayerInput playerInput;                        //The current inputs for the player
     BoxCollider2D bodyCollider;				//The collider component
     Rigidbody2D rigidBody;                  //The rigidbody component
     Animator animator;                  //The rigidbody component
+    TrailRenderer trail;                  //The rigidbody component
 
 
     float dashTimeStamp = 0f;                   //Variable to hold dash duration
+    float stunTimeStamp = 0f;                   //Variable to hold dash duration
     float coyoteTime;                       //Variable to hold coyote duration
     float playerHeight = 0f;				//Height of the player
 
     float originalXScale;                   //Original scale on X axis
     float originalGravity;                  //Original scale on X axis
+    float originalTrailTime;                  //Original scale on X axis
     int direction = 1;                      //Direction player is facing
 
     Vector2 colliderStandSize;              //Size of the standing collider
@@ -75,7 +81,10 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        trail = GetComponent<TrailRenderer>();
 
+        if (trail)
+            originalTrailTime = trail.time;
 
         //Record the original x scale of the player
         originalXScale = transform.localScale.x;
@@ -98,6 +107,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead)
             return;
+        if(isStuned)
+        {
+            if (stunTimeStamp + stunedTime < Time.time)
+                isStuned = false;
+            else 
+            return;
+        }
+
         //Check the environment to determine status
         PhysicsCheck();
 
@@ -137,9 +154,12 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Push(float force, Vector2 direction)
     {
-    //    Debug.Log("push " + force + direction);
-    //    if(force > 0 && direction!=Vector2.zero)
-    //    this.rigidBody.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+        force *= 5;
+        Debug.Log("push " + force + " " +  direction);
+        isStuned = true;
+        stunTimeStamp = Time.time;
+        animator.SetTrigger("jump");
+        this.rigidBody.AddForce(direction.normalized * force, ForceMode2D.Impulse);
     }
 
     public void Kill()
@@ -163,13 +183,25 @@ public class PlayerMovement : MonoBehaviour
             //rigidBody.AddForce(new Vector2(dashForce * direction, 0f ), ForceMode2D.Impulse);
             rigidBody.velocity = new Vector2(dashForce * direction, 0f);
             rigidBody.gravityScale = 0;
+
+            if (trail)
+            {
+                //trail.enabled = true;
+                trail.time = originalTrailTime; 
+                trail.Clear();
+            }
         }
 
         if (isDash && dashTimeStamp + dashTime < Time.time)
         {
             isDash = false;
             rigidBody.gravityScale = originalGravity;
-        }
+
+            if (trail)
+            {
+                //trail.enabled = false;
+                trail.time = 0;
+            }
 
     }
 

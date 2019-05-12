@@ -41,8 +41,8 @@ public class Bomb : MonoBehaviour
 
                 if (movement)
                 {
-
-                   // movement.Push(exlosionPushForce / item.distance, item.point - item.centroid);
+                    Debug.Log("distance " + item.distance);
+                    movement.Push(item.distance > 0 ? exlosionPushForce / item.distance : exlosionPushForce, item.point - item.centroid);
                 }
 
 
