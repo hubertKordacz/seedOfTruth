@@ -18,16 +18,21 @@ public class CollectibleItem : MonoBehaviour
     }
 
     public CollectibleType itemType;
+    public AudioClip showSound;
+    public AudioClip hideSound;
+
     private Animator animator;
     private bool isActive = false;
+    private AudioSource audioSource;
 
-    
     public ParticleSystem spawnParticle;
 
     public bool IsActive { get => isActive; }
 
     private void Awake()
     {
+
+        audioSource = GetComponent<AudioSource>();
         animator = this.GetComponent<Animator>();
        isActive=false;
 
@@ -39,8 +44,9 @@ public class CollectibleItem : MonoBehaviour
     public void Show()
     {
       isActive = true;
-        
-        
+        if (audioSource != null && showSound != null)
+            audioSource.PlayOneShot(showSound);
+
         if (animator)
             animator.SetTrigger("show");
         else 
@@ -49,7 +55,9 @@ public class CollectibleItem : MonoBehaviour
     }
     public void Hide()
     {
-    
+        if (audioSource != null && hideSound != null)
+            audioSource.PlayOneShot(hideSound);
+
         isActive = false;
         if (animator)
             animator.SetTrigger("hide");

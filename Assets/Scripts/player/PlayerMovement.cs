@@ -42,12 +42,18 @@ public class PlayerMovement : MonoBehaviour
     public bool isStuned;                     //Is the player isDashing?
 
 
+    [Header("Sounds ")]
+    public AudioClip dashSound;
+    public AudioClip jumpSound;
+    public AudioClip killSound;
+
+
     PlayerInput playerInput;                        //The current inputs for the player
     BoxCollider2D bodyCollider;				//The collider component
     Rigidbody2D rigidBody;                  //The rigidbody component
     Animator animator;                  //The rigidbody component
     TrailRenderer trail;                  //The rigidbody component
-
+     AudioSource audioSource;
 
     float dashTimeStamp = 0f;                   //Variable to hold dash duration
     float stunTimeStamp = 0f;                   //Variable to hold dash duration
@@ -82,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         trail = GetComponent<TrailRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         if (trail)
         {
@@ -173,6 +180,10 @@ public class PlayerMovement : MonoBehaviour
         deathParticle2.Play(true);
         animator.SetTrigger("die");
         isDead = true;
+
+        if (audioSource != null && killSound != null)
+            audioSource.PlayOneShot(killSound);
+
     }
 
     void Dash()
@@ -186,6 +197,9 @@ public class PlayerMovement : MonoBehaviour
             //rigidBody.AddForce(new Vector2(dashForce * direction, 0f ), ForceMode2D.Impulse);
             rigidBody.velocity = new Vector2(dashForce * direction, 0f);
             rigidBody.gravityScale = 0;
+
+            if (audioSource != null && dashSound != null)
+                audioSource.PlayOneShot(dashSound);
 
             if (trail)
             {
@@ -265,6 +279,10 @@ public class PlayerMovement : MonoBehaviour
             //...The player is no longer on the groud and is jumping...
             isOnGround = false;
             jumpParticle.Play(true);
+
+            if (audioSource != null && jumpSound != null)
+                audioSource.PlayOneShot(jumpSound);
+
 
             //...add the jump force to the rigidbody...
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);

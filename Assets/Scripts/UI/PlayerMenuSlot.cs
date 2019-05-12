@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 public class PlayerMenuSlot : MonoBehaviour
 {
-    public CanvasGroup group;
+    public Transform selectMarker;
     public TextMeshProUGUI scoreLabel;
   
     public InputID player;
     private bool isSelected;
 
     public bool IsSelected { get => isSelected;}
-    private bool isFinal = false;
+    private bool isSelectable = false;
     private void Update()
     {
         var rePlayer = ReInput.players.GetPlayer((int)player);
-        if (!isFinal && rePlayer != null && rePlayer.GetButtonDown("select"))
+        if (!isSelectable && rePlayer != null && rePlayer.GetButtonDown("select"))
         {
 
             if (isSelected)
@@ -32,29 +32,29 @@ public class PlayerMenuSlot : MonoBehaviour
     private void Select()
     {
         isSelected = true;
-        group.alpha = 1.0f;
+        if (selectMarker)
+            selectMarker.gameObject.SetActive(true);
     }
 
     public void Unselect()
     {
         isSelected = false;
-        group.alpha = 0.5f;
+        if(selectMarker)
+        selectMarker.gameObject.SetActive(false);
 
     }
 
    
     internal void Result(int score, bool final)
     {
-        isFinal = final;
-        if (!final)
-            Unselect();
-
+        isSelectable = false;
+       
         UpdateScore(score);
     }
 
     private void UpdateScore(int score)
     {
         if (scoreLabel)
-            scoreLabel.text =  score.ToString() + " Seeds";
+            scoreLabel.text =  score.ToString() + " Points";
     }
 }

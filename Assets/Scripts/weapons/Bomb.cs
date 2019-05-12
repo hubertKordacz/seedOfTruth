@@ -6,12 +6,14 @@ public class Bomb : MonoBehaviour
     public float waitTime = 5.0f;
     public float warinigTime = 2.0f;
 
+    public AudioClip warningSound;
+    public AudioClip explosionSound;
     public float exlosionTime = 0.4f;
     public float exlosionRange = 5.0f;
     public float exlosionPushForce = 5.0f;
     public float damage = 5.0f;
 
-
+    private AudioSource audioSource;
     public ParticleSystem eggParticle;
 
     private Animator animator;
@@ -19,6 +21,7 @@ public class Bomb : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(Wait());
     }
 
@@ -29,7 +32,10 @@ public class Bomb : MonoBehaviour
 
         if (animator)
             animator.SetTrigger("warning");
+      
 
+        if (audioSource != null && warningSound != null)
+            audioSource.PlayOneShot(warningSound);
 
         yield return new WaitForSeconds(warinigTime);
 
@@ -64,6 +70,9 @@ public class Bomb : MonoBehaviour
     private IEnumerator Explode()
     {
         // particle
+      
+        if (audioSource != null && explosionSound != null)
+            audioSource.PlayOneShot(explosionSound);
 
         eggParticle.Play(true);
         yield return new WaitForSeconds(exlosionTime);
