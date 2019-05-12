@@ -179,6 +179,13 @@ public class PlayerMovement : MonoBehaviour
         deathParticle.Play(true);
         deathParticle2.Play(true);
         animator.SetTrigger("die");
+
+        animator.ResetTrigger("jump");
+        animator.ResetTrigger("dash");
+        animator.ResetTrigger("idle");
+        animator.ResetTrigger("fall");
+        animator.ResetTrigger("walk");
+
         isDead = true;
 
         if (audioSource != null && killSound != null)
