@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         LOADING = 2,
         GAMEPLAY = 3,
         CURRENT_RESULT =4,
-        FINAL_RESULT = 5
+        FINAL_RESULT = 5,
         SPLASH = 6
     }
 
