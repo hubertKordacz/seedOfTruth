@@ -724,11 +724,11 @@ MonoBehaviour:
   levels:
   - level_01
   - level_02
-  - level_03
-  - level_04
   - level_05
   - level_06
+  - level_04
   - level_07
+  - level_03
   menuSlots:
   - {fileID: 5941130364125939994}
   - {fileID: 1301209081}
