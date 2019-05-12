@@ -7,6 +7,7 @@ public class BulletExploding : BulletBase
     public float exlosionTime = 0.4f;
     public float exlosionRange = 5.0f;
     public float exlosionPushForce= 5.0f;
+    public AudioClip explosionSound;
     public ParticleSystem explodeParticle;
 
 
@@ -43,6 +44,11 @@ public class BulletExploding : BulletBase
     private IEnumerator Explode()
     {
         // particle
+        var audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && explosionSound != null)
+            audioSource.PlayOneShot(explosionSound);
+
+
         explodeParticle.Play(true);
         this.rigidBody.velocity = Vector2.zero;
         yield return new WaitForSeconds(exlosionTime);
