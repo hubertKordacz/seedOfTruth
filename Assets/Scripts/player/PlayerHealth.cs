@@ -5,23 +5,27 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
 
-    private bool isDead;
+
     public PlayerGameplaySlot hudSlot;
     public float maxHealth = 100;
-    public bool IsDead { get => isDead;  }
+    public bool IsDead { get => movement.isDead;  }
 
     private float health = 100;
 
     public ParticleSystem hitParticle;
-
+    private PlayerMovement movement;
     private void Start()
     {
+        movement=  this.GetComponent<PlayerMovement>();
         health = maxHealth;
         hudSlot.UpdateHealth(health, maxHealth);
     }
 
     public void DealDamage(float value)
     {
+        if (IsDead)
+            return;
+
         if(hitParticle)
             hitParticle.Play(true);
         health = Mathf.Max(health - value,0);
@@ -35,14 +39,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-           isDead = true;
-            var movement = this.GetComponent<PlayerMovement>();
-            movement.Kill();
+           movement.Kill();
         }
     }
 
     public void Heal(float value)
     {
+        if (IsDead)
+            return;
 
         health = Mathf.Min(health + value, maxHealth);
         if (hudSlot)

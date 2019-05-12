@@ -22,11 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public float dashForce = 4.3f;          //Initial force of dash
     public float dashCooldown = 2.1f;       //How long the dash can't be performed
 
-    internal void Kill()
-    {
-        deathParticle.Play(true);
-        deathParticle2.Play(true);
-    }
 
     public float dashTime = 1.1f;            //How long the dash last
 
@@ -41,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnGround;                 //Is the player on the ground?
     public bool isOnWall;                 //Is the player on the wall?
     public bool isDash;                     //Is the player isDashing?
+    public bool isDead;                     //Is the player isDashing?
 
 
     PlayerInput playerInput;                        //The current inputs for the player
@@ -100,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDead)
+            return;
         //Check the environment to determine status
         PhysicsCheck();
 
@@ -144,6 +142,15 @@ public class PlayerMovement : MonoBehaviour
     //    this.rigidBody.AddForce(direction.normalized * force, ForceMode2D.Impulse);
     }
 
+    public void Kill()
+    {
+        if (isDead)
+            return;
+        deathParticle.Play(true);
+        deathParticle2.Play(true);
+        animator.SetTrigger("die");
+        isDead = true;
+    }
 
     void Dash()
     {
