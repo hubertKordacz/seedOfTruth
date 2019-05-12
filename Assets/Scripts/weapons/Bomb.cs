@@ -11,6 +11,9 @@ public class Bomb : MonoBehaviour
     public float exlosionPushForce = 5.0f;
     public float damage = 5.0f;
 
+
+    public ParticleSystem eggParticle;
+
     private Animator animator;
     // Use this for initialization
     void Start()
@@ -62,6 +65,7 @@ public class Bomb : MonoBehaviour
     {
         // particle
 
+        eggParticle.Play(true);
         yield return new WaitForSeconds(exlosionTime);
 
         Destroy(this.gameObject);
