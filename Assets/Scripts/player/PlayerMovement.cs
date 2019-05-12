@@ -84,7 +84,10 @@ public class PlayerMovement : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
 
         if (trail)
+        {
             originalTrailTime = trail.time;
+            trail.time = 0;
+        }
 
         //Record the original x scale of the player
         originalXScale = transform.localScale.x;
@@ -202,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
                 //trail.enabled = false;
                 trail.time = 0;
             }
+        }
 
     }
 
