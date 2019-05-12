@@ -23,8 +23,8 @@ public class BulletExploding : BulletBase
 
                 if (movement)
                 {
+                    movement.Push(item.distance > 0 ? exlosionPushForce / item.distance : exlosionPushForce, item.point - item.centroid);
 
-                    movement.Push(exlosionPushForce / item.distance, item.point - item.centroid);
                 }
 
 
