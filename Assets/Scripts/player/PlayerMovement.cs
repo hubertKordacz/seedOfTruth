@@ -186,9 +186,10 @@ public class PlayerMovement : MonoBehaviour
 
         //Cast rays for the left and right foot
         RaycastHit2D topCheck = Raycast(new Vector2(0f, -handsOffset), Vector2.right * direction, wallDistance);
+        RaycastHit2D middleCheck = Raycast(new Vector2(0f, 0f), Vector2.right * direction, wallDistance);
         RaycastHit2D bottomCheck = Raycast(new Vector2(0f, handsOffset), Vector2.right * direction, wallDistance);
 
-        isOnWall = topCheck || bottomCheck;
+        isOnWall = topCheck || bottomCheck || middleCheck;
 
 
     }
