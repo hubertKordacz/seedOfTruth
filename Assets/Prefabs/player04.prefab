@@ -108,5 +108,25 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.minColor.b
       value: 0.85992986
       objectReference: {fileID: 0}
+    - target: {fileID: 9171307817603428116, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171307817603428116, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.8378444
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171307817603428116, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171307817603428116, guid: 757c3ec6d504046d5aaadbc30a21d81c,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.88722086
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757c3ec6d504046d5aaadbc30a21d81c, type: 3}
